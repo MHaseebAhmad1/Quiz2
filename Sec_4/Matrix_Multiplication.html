@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Matrix Multiplication</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <center>
+        <h3>Matrix Multiplication</h3>
+        <table cellpadding="10">
+            <tr>
+                <th>Enter No. of Rows for matA</th>
+                <th><input type="text" id="rowA"></th>
+            </tr>
+            <tr>
+                <th>Enter No. of Cols for matA</th>
+                <th><input type="text" id="colA"></th>
+            </tr>
+            <tr>
+                <th>Enter No. of Rows for matB</th>
+                <th><input type="text" id="rowB"></th>
+            </tr>
+            <tr>
+                <th>Enter No. of Cols for matB</th>
+                <th><input type="text" id="colB"></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th><button class="btn btn-primary" onclick="multiply()">Multiply</button></th>
+            </tr>
+        </table>
+    </center>
+
+    <script>
+
+        function multiply() {
+            var rowA = parseInt(document.getElementById("rowA").value);
+            var rowB = parseInt(document.getElementById("rowB").value);
+            var colA = parseInt(document.getElementById("colA").value);
+            var colB = parseInt(document.getElementById("colB").value);
+           
+            var matA = new Array(rowA);
+            var matB = new Array(rowB);
+
+            if (colA != rowB) {
+                alert("Enter correct order for multiplication");
+            }
+            else {
+                for (let a = 0; a < rowA; a++) {
+                    matA[a] = new Array(colA);
+                }
+                for (let b = 0; b < rowB; b++) {
+                    matB[b] = new Array(colB);
+                }
+                for (let i = 0; i < rowA; i++) {
+                    for (let j = 0; j < colA; j++) {
+                        matA[i][j] = prompt("Enter value for matrixA[" + i + "][" + j + "]:");
+                    }
+                }
+                for (let m = 0; m < rowB; m++) {
+                    for (let n = 0; n < colB; n++) {
+                        matB[m][n] = prompt("Enter value for matrixB[" + m + "][" + n + "]:");
+                    }
+                }
+            }
+
+            var matC = new Array(rowA);
+            for (let c = 0; c < rowA; c++) {
+                    matC[c] = new Array(colB);
+                }
+            let i, j, k;
+            for (i = 0; i < rowA; i++) {
+                for (j = 0; j < colB; j++) {
+                    matC[i][j] = 0;
+                    for (k = 0; k < colA; k++)
+                        matC[i][j] += matA[i][k] * matB[k][j];
+                }
+            }
+            for(let x=0; x<rowA; x++){
+                for (let y = 0; y < colB; y++) {
+                  document.write(matC[x][y]+"   ");
+                }
+                document.write("<br>");
+            }
+        }
+
+    </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

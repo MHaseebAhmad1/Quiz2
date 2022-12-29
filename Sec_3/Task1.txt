@@ -1,0 +1,16 @@
+Arrow function is a concise way to write a function.
+In it we do not have to write word function. We just put name of the function, pass parameters and put arrow sign before th function body.
+In regular JavaScript functions, arguments keywords can be used to access the passed arguments when the function is invoked. But, arrow functions do not have their own arguments and it uses the arguments from the outer function.
+In arrow function we can skip return keyword.
+
+Regular function 
+
+function add(){
+
+}
+
+Arrow function
+
+add = ()=>{
+
+}
